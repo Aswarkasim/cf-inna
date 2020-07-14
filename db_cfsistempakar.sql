@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jul 2020 pada 14.51
--- Versi server: 10.1.32-MariaDB
--- Versi PHP: 7.2.5
+-- Generation Time: 14 Jul 2020 pada 12.02
+-- Versi Server: 10.1.32-MariaDB
+-- PHP Version: 7.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -36,6 +34,48 @@ CREATE TABLE `tbl_diagnosa` (
   `cf_hasil` float NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tbl_diagnosa`
+--
+
+INSERT INTO `tbl_diagnosa` (`id_diagnosa`, `id_pasien`, `kode_pengetahuan`, `nilai_cf`, `cf_hasil`, `date_created`) VALUES
+(1, '112854799657030', '02451', 0, 0, '2020-07-13 13:31:25'),
+(2, '112854799657030', '02495', 0, 0, '2020-07-13 13:31:25'),
+(3, '112854799657030', '04529', 0, 0, '2020-07-13 13:31:25'),
+(4, '112854799657030', '09136', 0, 0, '2020-07-13 13:31:25'),
+(5, '832385469206947', '02451', 0.4, 0.24, '2020-07-13 13:34:39'),
+(6, '832385469206947', '02495', 0.4, 0.16, '2020-07-13 13:34:39'),
+(7, '832385469206947', '04529', 0, 0, '2020-07-13 13:34:39'),
+(8, '832385469206947', '09136', 0, 0, '2020-07-13 13:34:39'),
+(9, '221608735044795', '02451', 0, 0, '2020-07-13 13:35:01'),
+(10, '221608735044795', '02495', 0, 0, '2020-07-13 13:35:01'),
+(11, '221608735044795', '04529', 0, 0, '2020-07-13 13:35:01'),
+(12, '221608735044795', '09136', 0.4, 0.2, '2020-07-13 13:35:01'),
+(13, '148568420512377', '02451', 0, 0, '2020-07-13 23:01:12'),
+(14, '148568420512377', '02495', 0.4, 0.16, '2020-07-13 23:01:12'),
+(15, '148568420512377', '04529', 0, 0, '2020-07-13 23:01:12'),
+(16, '148568420512377', '09136', 0.4, 0.2, '2020-07-13 23:01:12'),
+(17, '357108978164940', '02451', 0, 0, '2020-07-13 23:17:46'),
+(18, '357108978164940', '02495', 0.4, 0.16, '2020-07-13 23:17:46'),
+(19, '357108978164940', '04529', 0, 0, '2020-07-13 23:17:46'),
+(20, '357108978164940', '09136', 0, 0, '2020-07-13 23:17:46'),
+(21, '587434220691376', '02451', 1, 0.6, '2020-07-13 23:18:51'),
+(22, '587434220691376', '02495', 1, 0.4, '2020-07-13 23:18:51'),
+(23, '587434220691376', '04529', 1, 0.5, '2020-07-13 23:18:51'),
+(24, '587434220691376', '09136', 1, 0.5, '2020-07-13 23:18:51'),
+(41, '627085319094168', '02451', 0.4, 0.24, '2020-07-13 23:48:56'),
+(42, '627085319094168', '02495', 0.8, 0.32, '2020-07-13 23:48:56'),
+(43, '627085319094168', '04529', 0.8, 0.4, '2020-07-13 23:48:56'),
+(44, '627085319094168', '09136', 0.8, 0.4, '2020-07-13 23:48:56'),
+(49, '039851687409215', '02451', 0, 0, '2020-07-14 00:07:52'),
+(50, '039851687409215', '02495', 0.4, 0.16, '2020-07-14 00:07:52'),
+(51, '039851687409215', '04529', 0.4, 0.2, '2020-07-14 00:07:52'),
+(52, '039851687409215', '09136', 0, 0, '2020-07-14 00:07:52'),
+(53, '843725056199736', '02451', 0, 0, '2020-07-14 09:31:51'),
+(54, '843725056199736', '02495', 0.4, 0.16, '2020-07-14 09:31:51'),
+(55, '843725056199736', '04529', 0.4, 0.2, '2020-07-14 09:31:51'),
+(56, '843725056199736', '09136', 0, 0, '2020-07-14 09:31:51');
 
 -- --------------------------------------------------------
 
@@ -97,8 +137,9 @@ CREATE TABLE `tbl_jenis` (
 --
 
 INSERT INTO `tbl_jenis` (`kode_jenis`, `nama_jenis`, `penanganan`, `banding`, `parameter`, `tgl_update`) VALUES
-('P01', 'Diare Akut', 'Diare Akut Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptatem voluptas veritatis quas neque impedit nemo tenetur numquam, laboriosam, voluptates incidunt est quod velit commodi in. Minus eum deleniti adipisci.', '<=', 74, '2020-06-29 02:28:58'),
-('P02', 'Diare Kronis', 'Diaket Kronis Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptatem voluptas veritatis quas neque impedit nemo tenetur numquam, laboriosam, voluptates incidunt est quod velit commodi in. Minus eum deleniti adipisci.', '>=', 75, '2020-06-29 02:29:10');
+('P01', 'Diare Ringan', 'Diare Ringan lorem ipsum', '>', 40, '2020-07-13 13:15:34'),
+('P02', 'Diare Akut', 'Diare Akut Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptatem voluptas veritatis quas neque impedit nemo tenetur numquam, laboriosam, voluptates incidunt est quod velit commodi in. Minus eum deleniti adipisci.', '<=', 74, '2020-07-13 13:15:38'),
+('P03', 'Diare Kronis', 'Diaket Kronis Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptatem voluptas veritatis quas neque impedit nemo tenetur numquam, laboriosam, voluptates incidunt est quod velit commodi in. Minus eum deleniti adipisci.', '>=', 75, '2020-07-13 13:15:40');
 
 -- --------------------------------------------------------
 
@@ -108,22 +149,26 @@ INSERT INTO `tbl_jenis` (`kode_jenis`, `nama_jenis`, `penanganan`, `banding`, `p
 
 CREATE TABLE `tbl_konfigurasi` (
   `id_konfigurasi` int(1) NOT NULL,
-  `nama_aplikasi` varchar(100) NOT NULL,
+  `nama_instansi` varchar(100) NOT NULL,
   `nama_pimpinan` varchar(100) NOT NULL,
   `provinsi` varchar(128) NOT NULL,
   `kabupaten` varchar(128) NOT NULL,
   `kecamatan` varchar(128) NOT NULL,
   `alamat` text NOT NULL,
   `kontak_person` varchar(20) NOT NULL,
-  `stok_min` int(6) NOT NULL
+  `head_panduan` text NOT NULL,
+  `panduan` text NOT NULL,
+  `banner` varchar(200) NOT NULL,
+  `topik_banner` text NOT NULL,
+  `deskripsi_banner` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_konfigurasi`
 --
 
-INSERT INTO `tbl_konfigurasi` (`id_konfigurasi`, `nama_aplikasi`, `nama_pimpinan`, `provinsi`, `kabupaten`, `kecamatan`, `alamat`, `kontak_person`, `stok_min`) VALUES
-(1, 'Inventory Barang', 'Waddah', 'Sulawesi Selatan', 'Makassar', 'Manggala', 'jl. Dg. Hayo', '085298730727', 10);
+INSERT INTO `tbl_konfigurasi` (`id_konfigurasi`, `nama_instansi`, `nama_pimpinan`, `provinsi`, `kabupaten`, `kecamatan`, `alamat`, `kontak_person`, `head_panduan`, `panduan`, `banner`, `topik_banner`, `deskripsi_banner`) VALUES
+(1, 'Inventory Barang', 'Waddah', 'Sulawesi Selatan', 'Makassar', 'Manggala', 'Jl. Dg. Hayo', '085298730727', 'Panduan', '<p>Panduan <strong>adkaah</strong> <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing elit. Nobis aut voluptatum dolorem perferendis repudiandae iure in, commodi earum necessitatibus incidunt beatae soluta, culpa, assumenda est odio sint debitis minima dolores?</p>', 'alone-clouds-cloudy-105857.jpg', 'SISTEM PAKAR PENYAKIT DIARE', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit itaque, laudantium cum sequi doloremque earum perferendis consequatur officia velit in voluptates minus corrupti impedit omnis molestiae, voluptate non labore corporis!\r\n');
 
 -- --------------------------------------------------------
 
@@ -137,7 +182,7 @@ CREATE TABLE `tbl_pasien` (
   `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
   `umur` int(3) NOT NULL,
   `akumulasi_cf` float NOT NULL,
-  `diagnosa` varchar(20) NOT NULL,
+  `kode_penyakit` varchar(20) NOT NULL,
   `tgl_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -145,64 +190,10 @@ CREATE TABLE `tbl_pasien` (
 -- Dumping data untuk tabel `tbl_pasien`
 --
 
-INSERT INTO `tbl_pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `umur`, `akumulasi_cf`, `diagnosa`, `tgl_update`) VALUES
-('024179153528668', 'Aswar Kasim', 'Laki-laki', 22, 0, '', '2020-06-15 07:25:56'),
-('027813698530726', 'Aswar Kasim', '', 12, 0, '', '2020-06-23 01:38:16'),
-('028816395054129', 'Ali', 'Laki-laki', 13, 0, '', '2020-07-03 06:52:57'),
-('034752632489151', 'Mahyuddin', 'Laki-laki', 14, 0, '', '2020-06-29 01:36:58'),
-('039261794825731', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:40:26'),
-('040755138226138', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:01:52'),
-('043377985951186', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:46:16'),
-('051203447739291', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-23 06:25:59'),
-('060928732468173', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-23 01:18:34'),
-('061810392753948', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:05:30'),
-('073518308467622', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:05:08'),
-('076721905485812', 'Syamsul', 'Laki-laki', 13, 0, '', '2020-07-03 07:04:19'),
-('158063054987692', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:44:35'),
-('164728527690538', 'Aswar Kasim', '', 13, 0, '', '2020-06-23 01:34:27'),
-('184609625732548', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-29 01:35:25'),
-('195207261438486', 'Aswar Kasim', '', 13, 0, '', '2020-06-23 01:35:05'),
-('227955713466348', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-24 01:43:00'),
-('256819694103577', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-24 01:43:23'),
-('268273815949300', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:49:14'),
-('287060438596134', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:49:56'),
-('315379746920815', 'Aswar Kasim', '', 13, 0, '', '2020-06-23 01:31:03'),
-('324530420691816', 'Aswar Kasim', 'Perempuan', 12, 0, '', '2020-06-23 06:18:43'),
-('347581274265068', 'Aswar Kasim', 'Perempuan', 12, 0, '', '2020-06-23 06:22:52'),
-('355962708406972', 'Aswar Kasim', 'Laki-laki', 22, 0, '', '2020-06-15 07:23:08'),
-('360381916445802', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-24 01:12:57'),
-('368208039476249', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-23 01:20:04'),
-('417462731299368', 'Aswar Kasim', 'Laki-laki', 22, 0, '', '2020-06-15 07:14:08'),
-('438296705145183', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:44:56'),
-('462517392859687', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:00:10'),
-('480512859096672', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-29 01:55:19'),
-('480801296692773', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:45:39'),
-('489572562718304', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-29 01:37:56'),
-('491806225678394', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-23 06:21:54'),
-('553086427173914', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:46:49'),
-('560840334265778', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 05:55:32'),
-('569680421912580', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 05:58:42'),
-('586731106045397', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-07-03 07:28:58'),
-('591408129567270', 'Aswar Kasim', 'Laki-laki', 14, 0, '', '2020-06-23 06:22:37'),
-('620853342191497', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-22 01:48:45'),
-('640835917214637', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:44:32'),
-('671839525414678', 'Masri', 'Laki-laki', 12, 0, '', '2020-06-29 01:53:31'),
-('713621845040962', 'Aswar Kasim', '', 12, 0, '', '2020-06-23 01:37:44'),
-('713901565084826', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:01:13'),
-('720996750838634', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:18:18'),
-('727682045381993', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:40:58'),
-('743314652629880', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:43:58'),
-('751649015323069', 'Mahyuddin', 'Laki-laki', 12, 0, '', '2020-06-23 01:22:32'),
-('793816250144720', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-29 01:42:33'),
-('809337117842425', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 05:58:47'),
-('827670443135218', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-29 01:42:01'),
-('858153264094703', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:44:29'),
-('874870529416365', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-29 01:30:10'),
-('896149302578761', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:44:38'),
-('935213685970182', 'Ali', 'Laki-laki', 12, 0, '', '2020-06-23 01:45:42'),
-('939781132546406', 'Aswar Kasim', 'Perempuan', 12, 0, '', '2020-07-03 07:19:06'),
-('943190857228653', 'Aswar Kasim', 'Laki-laki', 12, 0, '', '2020-06-23 06:24:18'),
-('960885796431225', 'Mahyuddin', 'Perempuan', 12, 0, '', '2020-06-29 01:35:47');
+INSERT INTO `tbl_pasien` (`id_pasien`, `nama_pasien`, `jenis_kelamin`, `umur`, `akumulasi_cf`, `kode_penyakit`, `tgl_update`) VALUES
+('039851687409215', 'Ali', 'Laki-laki', 12, 43.552, 'P02', '2020-07-14 00:07:54'),
+('627085319094168', 'Ali', 'Perempuan', 15, 90.385, 'P03', '2020-07-13 23:48:58'),
+('843725056199736', 'Jamil', 'Laki-laki', 12, 43.552, 'P02', '2020-07-14 09:31:55');
 
 -- --------------------------------------------------------
 
@@ -226,33 +217,7 @@ INSERT INTO `tbl_pengetahuan` (`kode_pengetahuan`, `kode_jenis`, `kode_gejala`, 
 ('02451', 'P02', 'G014', 'Apakah anda mengalami sakit kepala?', 0),
 ('02495', 'P01', 'G009', 'Apakah anda mengalami berkeringat di mmalam hari?', 0),
 ('04529', 'P02', 'G005', 'Apakah anda mengalami keram perut?', 0),
-('09136', 'P01', 'G012', 'Apakah anda mengalami mulut kering?', 0),
-('09618', 'P02', 'G021', 'Apakah anda mengalami haus terus menerus?', 0),
-('10472', 'P02', 'G006', 'Apakah anda mengalami sakit perut?', 0),
-('17289', 'P01', 'G004', 'Apakah Sering Mual?', 0),
-('24378', 'P01', 'G010', 'Apakah anda mengalami lemas?', 0),
-('29046', 'P01', 'G016', 'Apakah anda mengalami berdarah/lendir pada tinja?', 0),
-('43560', 'P01', 'G013', 'Apakah anda mengalami frekuensi buang air kecil berkurang?', 0),
-('45187', 'P01', 'G021', 'Apakah anda mengalami haus terus menerus?', 0),
-('51047', 'P01', 'G020', 'Apakah anda mengalami lesu?', 0),
-('53194', 'P02', 'G007', 'Apakah anda mengalami muntah?', 0),
-('54892', 'P01', 'G017', 'Apakah anda mengalami kehilangan nafsu makan?', 0),
-('56027', 'P02', 'G003', 'Apakah BAB lebih dari 5 kali dalam sehari?', 0),
-('58736', 'P02', 'G004', 'Apaha sering Mual?', 0),
-('61478', 'P02', 'G015', 'Apakah anda mengalami demam?', 0),
-('64503', 'P02', 'G002', 'Apakah faeses lembek atau cair?', 0),
-('68251', 'P02', 'G020', 'Apakah anda mengalami lesu?', 0),
-('71364', 'P02', 'G001', 'Apakah anda mengalami perut kembung?', 0.7),
-('71865', 'P02', 'G018', 'Apakah anda mengalami dehidrasi?', 0),
-('74592', 'P01', 'G018', 'Apakah anda mengalami dehidrasi?', 0),
-('75630', 'P02', 'G017', 'Apakah anda mengalami kehilangan nafsu makan?', 0),
-('79603', 'P02', 'G019', 'Apakah anda mengalami feses banyak?', 0),
-('83467', 'P01', 'G015', 'Apakah anda mengalami demam?', 0),
-('83709', 'P01', 'G011', 'Apakah anda mengalami kram otot?', 0),
-('84612', 'P01', 'G019', 'Apakah anda mengalami feses banyak?', 0),
-('85274', 'P02', 'G008', 'Apakah anda mengalami pucat?', 0),
-('89623', 'P01', 'G007', 'Apakah anda mengalami muntah?', 0),
-('96780', 'P01', 'G014', 'Apakah anda mengalami sakit kepala?', 0);
+('09136', 'P01', 'G012', 'Apakah anda mengalami mulut kering?', 0);
 
 -- --------------------------------------------------------
 
@@ -285,70 +250,66 @@ INSERT INTO `tbl_user` (`id_user`, `nama_user`, `email`, `image`, `password`, `r
 --
 
 --
--- Indeks untuk tabel `tbl_diagnosa`
+-- Indexes for table `tbl_diagnosa`
 --
 ALTER TABLE `tbl_diagnosa`
   ADD PRIMARY KEY (`id_diagnosa`);
 
 --
--- Indeks untuk tabel `tbl_gejala`
+-- Indexes for table `tbl_gejala`
 --
 ALTER TABLE `tbl_gejala`
   ADD PRIMARY KEY (`kode_gejala`);
 
 --
--- Indeks untuk tabel `tbl_jenis`
+-- Indexes for table `tbl_jenis`
 --
 ALTER TABLE `tbl_jenis`
   ADD PRIMARY KEY (`kode_jenis`);
 
 --
--- Indeks untuk tabel `tbl_konfigurasi`
+-- Indexes for table `tbl_konfigurasi`
 --
 ALTER TABLE `tbl_konfigurasi`
   ADD PRIMARY KEY (`id_konfigurasi`);
 
 --
--- Indeks untuk tabel `tbl_pasien`
+-- Indexes for table `tbl_pasien`
 --
 ALTER TABLE `tbl_pasien`
   ADD PRIMARY KEY (`id_pasien`);
 
 --
--- Indeks untuk tabel `tbl_pengetahuan`
+-- Indexes for table `tbl_pengetahuan`
 --
 ALTER TABLE `tbl_pengetahuan`
   ADD PRIMARY KEY (`kode_pengetahuan`);
 
 --
--- Indeks untuk tabel `tbl_user`
+-- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_diagnosa`
+-- AUTO_INCREMENT for table `tbl_diagnosa`
 --
 ALTER TABLE `tbl_diagnosa`
-  MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
--- AUTO_INCREMENT untuk tabel `tbl_konfigurasi`
+-- AUTO_INCREMENT for table `tbl_konfigurasi`
 --
 ALTER TABLE `tbl_konfigurasi`
   MODIFY `id_konfigurasi` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT untuk tabel `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
