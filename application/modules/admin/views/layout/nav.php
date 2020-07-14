@@ -76,7 +76,6 @@ $role = $this->session->userdata('role');
                     <li class="<?php if ($this->uri->segment(3) == "panduan") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('admin/konfigurasi/panduan') ?>">Panduan</a></li>
-
                 </ul>
             </li>
 

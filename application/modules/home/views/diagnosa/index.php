@@ -22,7 +22,14 @@
 
                 <div class="form-group">
                     <label for=""><strong>Umur</strong></label>
-                    <input class="form-control" name="umur" placeholder="Umur" type="number" value="<?= set_value('umur') ?>">
+                    <select name="umur" id="" required class="form-control">
+                        <option value="">Umur</option>
+                        <?php
+                        for ($i = 5; $i <= 12; $i++) {
+                            echo '<option value=' . $i . '>' . $i . '</option>';
+                        }
+                        ?>
+                    </select>
                 </div>
 
                 <div class="float-right">
