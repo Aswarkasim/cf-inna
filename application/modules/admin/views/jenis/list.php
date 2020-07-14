@@ -1,3 +1,8 @@
+<?php
+
+$this->load->helper('text');
+
+?>
 <div class="box">
   <div class="box-header">
     <h3 class="box-title"></h3>
@@ -20,7 +25,9 @@
             <th width="30px">NO</th>
             <th width="40px">KODE</th>
             <th width="200">NAMA</th>
+            <th width="200">PERBANDINGAN</th>
             <th width="200">PARAMETER</th>
+            <th width="200">PENANGANAN</th>
             <th width="100px">ACTION</th>
           </tr>
         </thead>
@@ -32,7 +39,9 @@
               <td><?= $no ?></td>
               <td><?= $row->kode_jenis ?></td>
               <td><?= $row->nama_jenis ?></td>
+              <td><?= $row->banding ?></td>
               <td><?= $row->parameter . '%' ?></td>
+              <td><?= character_limiter($row->penanganan, 50) ?></td>
               <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-danger btn-flat"><i class="fa fa-cogs"></i></button>

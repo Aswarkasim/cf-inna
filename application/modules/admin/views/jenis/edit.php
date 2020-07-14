@@ -29,20 +29,60 @@
                                 <input type="text" class="form-control" name="nama" value="<?= $jenis->nama_jenis ?>">
                             </div>
                         </div><br>
+                        <div class="row">
+                            <div class="col-md-3"><strong>PERBANDINGAN <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
+                            <div class="col-md-9">
+                                <select name="banding" required class="form-control" id="">
+                                    <option value="">--Option--</option>
+                                    <option value=">" <?php if ($jenis->banding == '>') {
+                                                            echo 'selected';
+                                                        } ?>>></option>
+                                    <option value="<" <?php if ($jenis->banding == '<') {
+                                                            echo 'selected';
+                                                        } ?>>
+                                        <</option> <option value="<=" <?php if ($jenis->banding == '<=') {
+                                                                            echo 'selected';
+                                                                        } ?>>
+                                            <=</option> <option value=">=" <?php if ($jenis->banding == '>=') {
+                                                                                echo 'selected';
+                                                                            } ?>>>=
+                                    </option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-3"><strong>PARAMETER <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="parameter" value="<?= $jenis->parameter ?>">
+                            </div>
+                        </div><br>
+                        <script src="<?= base_url('assets/') ?>js/ckeditor/ckeditor.js"></script>
+                        <div class="row">
+                            <div class="col-md-3"><strong>PENANGANAN <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
+                            <div class="col-md-9">
+                                <textarea name="penanganan" id="editor" cols="30" rows="10"><?= $jenis->penanganan; ?></textarea>
+                            </div>
+                        </div><br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="<?= base_url($back) ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-edit"></i> Edit</button>
+                            </div>
+                        </div><br>
 
                     </div>
 
                     <div class="col-md-6">
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="<?= base_url($back) ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-edit"></i> Edit</button>
-                        </div>
-                    </div><br>
+
                 </div>
             </form>
         </div>
         <!-- /.box-body -->
     </div>
+
+    <script>
+        CKEDITOR.replace("editor");
+    </script>

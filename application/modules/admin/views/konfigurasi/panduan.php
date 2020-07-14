@@ -24,7 +24,7 @@
                 <input type="text" name="head_panduan" class="form-control" value="<?= $konfigurasi->head_panduan ?>">
               </div>
             </div>
-          </div>\
+          </div>
           <script src="<?= base_url('assets/') ?>js/ckeditor/ckeditor.js"></script>
           <div class="form-group">
             <div class="row">

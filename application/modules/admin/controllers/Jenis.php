@@ -58,6 +58,9 @@ class Jenis extends CI_Controller
             $data = array(
                 'kode_jenis'   => $i->post('kode'),
                 'nama_jenis'   => $i->post('nama'),
+                'banding'   => $i->post('banding'),
+                'parameter'   => $i->post('parameter'),
+                'penanganan'   => $i->post('penanganan')
             );
             $this->Crud_model->add('tbl_jenis', $data);
             $this->session->set_flashdata('msg', ' Data telah ditambah');
@@ -89,7 +92,10 @@ class Jenis extends CI_Controller
             $i = $this->input;
             $data = array(
                 'kode_jenis'   => $kode_jenis,
-                'nama_jenis'   => $i->post('nama')
+                'nama_jenis'   => $i->post('nama'),
+                'banding'   => $i->post('banding'),
+                'parameter'   => $i->post('parameter'),
+                'penanganan'   => $i->post('penanganan')
             );
             $this->Crud_model->edit('tbl_jenis', 'kode_jenis', $kode_jenis, $data);
             $this->session->set_flashdata('msg', ' Data telah diedit');
