@@ -40,17 +40,24 @@ class Auth extends CI_Controller
             //print_r($email); die;
 
             if (!empty($cek_login) == 1) {
-                $s = $this->session;
-                $s->set_userdata('id_user', $cek_login->id_user);
-                $s->set_userdata('email', $cek_login->email);
-                $s->set_userdata('nama_user', $cek_login->nama_user);
-                $s->set_userdata('is_active', $cek_login->is_active);
-                $s->set_userdata('role', $cek_login->role);
 
-                redirect(base_url('admin/dashboard'), 'refresh');
+                if ($cek_login->is_active == '1') {
+                    $s = $this->session;
+                    $s->set_userdata('id_user', $cek_login->id_user);
+                    $s->set_userdata('email', $cek_login->email);
+                    $s->set_userdata('nama_user', $cek_login->nama_user);
+                    $s->set_userdata('is_active', $cek_login->is_active);
+                    $s->set_userdata('role', $cek_login->role);
+                    redirect(base_url('admin/dashboard'), 'refresh');
+                } else {
+                    $data = array(
+                        'error'     => 'Akun anda tidak aktif',
+                        'content'   => 'admin/auth/content/'
+                    );
+                    $this->load->view('admin/auth/login_admin', $data);
+                }
             } else {
                 $data = array(
-                    'title'     => 'Login Admin Ananda Private',
                     'error'     => 'Email atau password salah',
                     'content'   => 'admin/auth/content/'
                 );

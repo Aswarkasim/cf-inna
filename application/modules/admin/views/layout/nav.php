@@ -82,8 +82,8 @@ $role = $this->session->userdata('role');
             <li class="<?php if ($this->uri->segment(2) == "logout") {
                             echo "active";
                         }
-                        ?>"><a href="<?php echo base_url('admin/logout')
-                                        ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                        ?>"><a href="<?php echo base_url('admin/auth/logout')
+                                        ?>" class="tombol-logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
 
 

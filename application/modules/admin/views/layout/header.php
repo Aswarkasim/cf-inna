@@ -40,7 +40,7 @@ $user = $this->Crud_model->listingOne('tbl_user', 'id_user', $id_user);
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-right">
-                                <a href="<?= base_url('admin/auth/logout') ?>" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Keluar</a>
+                                <a href="<?= base_url('admin/auth/logout') ?>" class="btn btn-default btn-flat tombol-logout"><i class="fa fa-sign-out"></i> Keluar</a>
                             </div>
                         </li>
                     </ul>
