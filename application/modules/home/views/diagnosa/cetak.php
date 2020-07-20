@@ -58,11 +58,11 @@
       </tr>
       <tr>
         <td align="right" width="200px">Umur :</td>
-        <td><?= $data->umur; ?></td>
+        <td><?= $data->umur . ' Tahun'; ?></td>
       </tr>
       <tr>
         <td align="right" width="200px">Keakuratan :</td>
-        <td><?= $data->akumulasi_cf; ?></td>
+        <td><?= $data->akumulasi_cf . ' %'; ?></td>
       </tr>
       <tr>
         <td align="right" width="200px">Diagnosa :</td>

@@ -88,7 +88,7 @@ class Gejala extends CI_Controller
         } else {
             $i = $this->input;
             $data = array(
-                'kode_gejala'   => $i->post('kode_gejala'),
+                'kode_gejala'   => $kode_gejala,
                 'nama_gejala'   => $i->post('nama')
             );
             $this->Crud_model->edit('tbl_gejala', 'kode_gejala', $kode_gejala, $data);
@@ -101,6 +101,6 @@ class Gejala extends CI_Controller
     {
         $this->Crud_model->delete('tbl_gejala', 'kode_gejala', $kode_gejala);
         $this->session->set_flashdata('msg', 'Data telah dihapus');
-        redirect('gejala', 'refresh');
+        redirect('admin/gejala', 'refresh');
     }
 }
