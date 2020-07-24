@@ -9,10 +9,7 @@ class Pengetahuan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // if ($this->session->userdata('id_admin') == "") {
-
-        //     redirect('error', 'refresh');
-        // }
+        is_logged_in_user();
         $this->load->model('CF_model', 'CF');
     }
 

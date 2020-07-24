@@ -85,6 +85,8 @@ $role = $this->session->userdata('role');
                         ?>"><a href="<?php echo base_url('admin/auth/logout')
                                         ?>" class="tombol-logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 
+            <li><a href="<?php echo base_url('') ?>" target="_blank" class=""><i class="fa fa-globe"></i> <span>Home</span></a></li>
+
 
 
         </ul>

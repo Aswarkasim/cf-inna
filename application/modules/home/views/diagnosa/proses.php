@@ -72,14 +72,16 @@
                     $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '40');
                     $kode_penyakit = $jenis->kode_jenis;
                     echo ' <span>' . $jenis->nama_jenis . '</span>';
-                } else if (($persentase <= 74) && $persentase >= 41) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '74');
+                } else if (($persentase >= 41) && $persentase <= 90) {
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '90');
+                    echo ' <span>' . $jenis->nama_jenis . '</span>';
+                    $kode_penyakit = $jenis->kode_jenis;
+                } else if (($persentase >= 91) && $persentase <= 100) {
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '100');
                     echo ' <span>' . $jenis->nama_jenis . '</span>';
                     $kode_penyakit = $jenis->kode_jenis;
                 } else {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '75');
-                    echo ' <span>' . $jenis->nama_jenis . '</span>';
-                    $kode_penyakit = $jenis->kode_jenis;
+                    echo 'Diagnosa tidak terdeteksi';
                 }
                 ?>
 
@@ -94,16 +96,20 @@
                 <label for=""><strong>PENANGANAN</strong></label><br>
                 <?php
 
+                //jika presentasi cf 0 
                 if ($persentase <= 0) {
                     echo ' <span>Tidak ada penanganan khusus</span>';
                 } else if (($persentase > 0) && $persentase <= 40) {
+                    //jika lebih besar dari 0 dan lebih kecil dari 40
+                    //tampilkan data dari tabel jenis yang memiliki parameter 40
                     $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '40');
+                    //tampilkan field yang dimaksud
                     echo ' <span>' . $jenis->penanganan . '</span>';
-                } else if (($persentase <= 74) && $persentase >= 41) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '74');
+                } else if (($persentase >= 41) && $persentase <= 90) {
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '90');
                     echo ' <span>' . $jenis->penanganan . '</span>';
-                } else {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '75');
+                } else if (($persentase >= 91) && $persentase <= 100) {
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '100');
                     echo ' <span>' . $jenis->penanganan . '</span>';
                 }
                 ?>
