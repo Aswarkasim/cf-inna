@@ -32,7 +32,7 @@ class Gejala extends CI_Controller
         $valid->set_rules(
             'kode',
             'Kode Gejala',
-            'required|is_unique[tbl_gejala.kode_gejala]|max_length[4]',
+            'required||max_length[4]',
             array(
                 'required' => ' %s harus diisi',
                 'is_unique' => 'Kode telah ada. Masukkan kode yang lain',
