@@ -32,8 +32,12 @@ class Jenis extends CI_Controller
         $valid->set_rules(
             'kode',
             'Kode Jenis',
-            'required',
-            array('required' => ' %s harus diisi')
+            'required|max_length[3]|is_unique[tbl_gejala.kode_jenis]',
+            array(
+                'required' => ' %s harus diisi',
+                'is_unique' => 'Kode telah ada. Masukkan kode yang lain',
+                'max_length' => 'panjang maksimal kode jenis adalah 3 karakter'
+            )
         );
         $valid->set_rules(
             'nama',
@@ -69,6 +73,15 @@ class Jenis extends CI_Controller
     {
         $jenis = $this->Crud_model->listingOne('tbl_jenis', 'kode_jenis', $kode_jenis);
         $valid = $this->form_validation;
+        $valid->set_rules(
+            'kode',
+            'Kode Jenis',
+            'required|max_length[3]',
+            array(
+                'required' => ' %s harus diisi',
+                'max_length' => 'panjang maksimal kode jenis adalah 3 karakter'
+            )
+        );
         $valid->set_rules(
             'nama',
             'Nama Jenis',

@@ -20,7 +20,7 @@
                         <div class="row pt10">
                             <div class="col-md-3"><strong>KODE PENYAKIT <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="kode" disabled value="<?= $jenis->kode_jenis ?>">
+                                <input type="text" class="form-control" name="kode" value="<?= $jenis->kode_jenis ?>">
                             </div>
                         </div><br>
                         <div class="row">

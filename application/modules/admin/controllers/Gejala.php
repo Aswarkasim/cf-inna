@@ -32,14 +32,18 @@ class Gejala extends CI_Controller
         $valid->set_rules(
             'kode',
             'Kode Gejala',
-            'required|is_unique[tbl_gejala.nama_gejala]',
-            array('required' => ' %s harus diisi')
+            'required|is_unique[tbl_gejala.kode_gejala]|max_length[4]',
+            array(
+                'required' => ' %s harus diisi',
+                'is_unique' => 'Kode telah ada. Masukkan kode yang lain',
+                'max_length' => 'panjang maksimal kode gejala adalah 4 karakter'
+            )
         );
         $valid->set_rules(
             'nama',
             'Nama Gejala',
             'required',
-            array('required' => ' %s harus diisi', 'nama_gejala' => 'Kode telah ada. Masukkan kode yang lain')
+            array('required' => ' %s harus diisi')
         );
 
         if ($valid->run() === FALSE) {
@@ -67,6 +71,15 @@ class Gejala extends CI_Controller
     {
         $gejala = $this->Crud_model->listingOne('tbl_gejala', 'kode_gejala', $kode_gejala);
         $valid = $this->form_validation;
+        $valid->set_rules(
+            'kode',
+            'Kode Gejala',
+            'required|max_length[4]',
+            array(
+                'required' => ' %s harus diisi',
+                'max_length' => 'panjang maksimal kode gejala adalah 4 karakter'
+            )
+        );
         $valid->set_rules(
             'nama',
             'Nama Gejala',
