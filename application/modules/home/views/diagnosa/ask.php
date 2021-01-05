@@ -6,6 +6,7 @@
             <input type="hidden" name="nama_pasien" value="<?= $nama_pasien ?>">
             <input type="hidden" name="jenis_kelamin" value="<?= $jenis_kelamin ?>">
             <input type="hidden" name="umur" value="<?= $umur ?>">
+            <input type="hidden" name="kode_penyakit" value="<?= $kode_penyakit ?>">
             <hr>
             <h3><b>Data Pasien</b></h3>
             <table class="table">
@@ -19,7 +20,7 @@
                 </tr>
                 <tr>
                     <td><b>Umur</b></td>
-                    <td>: <?= $umur ?></td>
+                    <td>: <?= $umur . ' Tahun' ?></td>
                 </tr>
 
             </table>

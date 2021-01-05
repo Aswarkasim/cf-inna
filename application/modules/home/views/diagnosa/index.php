@@ -1,6 +1,6 @@
 <section class="jumbotron bg-white">
     <div class="container">
-        <form action="<?= base_url('home/diagnosa/ask') ?>" method="post" class="form-signin">
+        <form action="<?= base_url('home/diagnosa/klasifikasi') ?>" method="post" class="form-signin">
             <div class="offset-md-3 col-md-6">
 
                 <?php

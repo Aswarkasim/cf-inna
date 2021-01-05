@@ -6,12 +6,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home_model extends CI_Model
 {
-    public function listPengetahuan()
+    public function listPengetahuan($kode_penyakit)
     {
         $this->db->select('tbl_pengetahuan.*, tbl_jenis.*, tbl_gejala.nama_gejala, tbl_gejala.nilai_cf as cf_root')
             ->from('tbl_pengetahuan')
             ->join('tbl_jenis', 'tbl_jenis.kode_jenis = tbl_pengetahuan.kode_jenis', 'left')
-            ->join('tbl_gejala', 'tbl_gejala.kode_gejala = tbl_pengetahuan.kode_gejala', 'left');
+            ->join('tbl_gejala', 'tbl_gejala.kode_gejala = tbl_pengetahuan.kode_gejala', 'left')
+            ->where('tbl_pengetahuan.kode_jenis', $kode_penyakit);
         return $this->db->get()->result();
     }
 

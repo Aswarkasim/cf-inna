@@ -22,7 +22,7 @@ class Diagnosa extends CI_Controller
         $this->load->view('layout/wrapper', $data);
     }
 
-    public function ask()
+    public function klasifikasi()
     {
         $valid = $this->form_validation;
         $valid->set_rules(
@@ -47,17 +47,31 @@ class Diagnosa extends CI_Controller
 
             $this->load->view('layout/wrapper', $data);
         } else {
-            $ask = $this->HM->listPengetahuan();
             $i = $this->input;
             $data = array(
                 'nama_pasien'     => $i->post('nama_pasien'),
                 'jenis_kelamin'   => $i->post('jenis_kelamin'),
                 'umur'            => $i->post('umur'),
-                'ask'     => $ask,
-                'content' => 'diagnosa/ask'
+                'content' => 'diagnosa/klasifikasi'
             );
             $this->load->view('layout/wrapper', $data);
         }
+    }
+
+
+    public function ask($kode_penyakit, $nama_pasien, $jenis_kelamin, $umur)
+    {
+
+        $ask = $this->HM->listPengetahuan($kode_penyakit);
+        $data = array(
+            'nama_pasien'     => $nama_pasien,
+            'jenis_kelamin'   => $jenis_kelamin,
+            'umur'            => $umur,
+            'kode_penyakit'            => $kode_penyakit,
+            'ask'     => $ask,
+            'content' => 'diagnosa/ask'
+        );
+        $this->load->view('layout/wrapper', $data);
     }
 
     function simpan($id)
@@ -76,6 +90,7 @@ class Diagnosa extends CI_Controller
             'id_pasien'     => random_string('numeric', '15'),
             'nama_pasien'   => $i->post('nama_pasien'),
             'umur'          => $i->post('umur'),
+            'kode_penyakit'          => $i->post('kode_penyakit'),
             'jenis_kelamin' => $i->post('jenis_kelamin')
         ];
         $this->Crud_model->add('tbl_pasien', $dataPasien);
@@ -88,7 +103,7 @@ class Diagnosa extends CI_Controller
             $postJawab = $i->post($jawab);
             $cf_hasil_kali = $postJawab * $row->cf_root;
             $diagnosa = [
-                'id_pasien' => $dataPasien['id_pasien'],
+                'id_pasien'     => $dataPasien['id_pasien'],
                 'kode_pengetahuan' => $i->post($kode_pengetahuan),
                 'nilai_cf'      => $postJawab,
                 'cf_hasil'      => $cf_hasil_kali
@@ -96,7 +111,7 @@ class Diagnosa extends CI_Controller
             $this->Crud_model->add('tbl_diagnosa', $diagnosa);
         }
 
-        redirect('home/diagnosa/rekapJawaban/' . $diagnosa['id_pasien']);
+        redirect('home/diagnosa/rekapJawaban/' . $dataPasien['id_pasien']);
     }
 
     function rekapJawaban($id_pasien)
