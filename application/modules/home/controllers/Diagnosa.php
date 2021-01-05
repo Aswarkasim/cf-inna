@@ -59,19 +59,24 @@ class Diagnosa extends CI_Controller
     }
 
 
-    public function ask($kode_penyakit, $nama_pasien, $jenis_kelamin, $umur)
+    public function ask($kode_penyakit = null, $nama_pasien = null, $jenis_kelamin = null, $umur = null)
     {
 
-        $ask = $this->HM->listPengetahuan($kode_penyakit);
-        $data = array(
-            'nama_pasien'     => $nama_pasien,
-            'jenis_kelamin'   => $jenis_kelamin,
-            'umur'            => $umur,
-            'kode_penyakit'            => $kode_penyakit,
-            'ask'     => $ask,
-            'content' => 'diagnosa/ask'
-        );
-        $this->load->view('layout/wrapper', $data);
+        if ($kode_penyakit == null) {
+            echo 'Tidak ada penyakit';
+        } else {
+
+            $ask = $this->HM->listPengetahuan($kode_penyakit);
+            $data = array(
+                'nama_pasien'     => $nama_pasien,
+                'jenis_kelamin'   => $jenis_kelamin,
+                'umur'            => $umur,
+                'kode_penyakit'            => $kode_penyakit,
+                'ask'     => $ask,
+                'content' => 'diagnosa/ask'
+            );
+            $this->load->view('layout/wrapper', $data);
+        }
     }
 
     function simpan($id)
