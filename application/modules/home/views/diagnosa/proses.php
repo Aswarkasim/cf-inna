@@ -65,58 +65,73 @@
             <div class="form-group">
                 <label for=""><strong>JENIS PENYAKIT</strong></label><br>
                 <?php
-                $kode_penyakit = '';
-                if ($persentase <= 0) {
-                    echo ' <span>Tidak menderita diare</span>';
-                } else if (($persentase > 0) && $persentase <= 40) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '40');
-                    $kode_penyakit = $jenis->kode_jenis;
-                    echo ' <span>' . $jenis->nama_jenis . '</span>';
-                } else if (($persentase >= 41) && $persentase <= 90) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '90');
-                    echo ' <span>' . $jenis->nama_jenis . '</span>';
-                    $kode_penyakit = $jenis->kode_jenis;
-                } else if (($persentase >= 91) && $persentase <= 100) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '100');
-                    echo ' <span>' . $jenis->nama_jenis . '</span>';
-                    $kode_penyakit = $jenis->kode_jenis;
-                } else {
-                    echo 'Diagnosa tidak terdeteksi';
-                }
+
+                echo "<span class = 'text-danger'>" . $penyakit->nama_jenis . "</span>";
+
+                // $kode_penyakit = '';
+                // if ($persentase <= 0) {
+                //     echo ' <span>Tidak menderita diare</span>';
+                // } else if (($persentase > 0) && $persentase <= 40) {
+                //     $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '40');
+                //     $kode_penyakit = $jenis->kode_jenis;
+                //     echo ' <span>' . $jenis->nama_jenis . '</span>';
+                // } else if (($persentase >= 41) && $persentase <= 90) {
+                //     $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '90');
+                //     echo ' <span>' . $jenis->nama_jenis . '</span>';
+                //     $kode_penyakit = $jenis->kode_jenis;
+                // } else if (($persentase >= 91) && $persentase <= 100) {
+                //     $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '100');
+                //     echo ' <span>' . $jenis->nama_jenis . '</span>';
+                //     $kode_penyakit = $jenis->kode_jenis;
+                // } else {
+                //     echo 'Diagnosa tidak terdeteksi';
+                // }
                 ?>
 
             </div>
             <hr>
             <div class="form-group">
+                <label for=""><strong>Tingkat</strong></label><br>
+                <span><?php
+
+                        $tingkat = '';
+                        if ($persentase <= 0) {
+                            $tingkat = '';
+                            echo ' <span  class = "text-danger">Tidak menderita diare</span>';
+                        } else if (($persentase > 0) && $persentase <= 44) {
+                            $tingkat = 'Rendah';
+                            echo ' <span class = "text-danger">Rendah</span>';
+                        } else if (($persentase >= 45) && $persentase <= 74) {
+                            $tingkat = 'Menengah';
+                            echo ' <span class = "text-danger">Menengah</span>';
+                        } else if (($persentase >= 75) && $persentase <= 100) {
+                            $tingkat = 'Tinggi';
+                            echo ' <span class = "text-danger">Tinggi</span>';
+                        } else {
+                            echo 'Diagnosa tidak terdeteksi';
+                        }
+                        ?></span>
+            </div>
+            <hr>
+            <div class="form-group">
                 <label for=""><strong>PERSENTASE</strong></label><br>
-                <span><?= $persentase . '%' ?></span>
+                <span class="text-danger"><?= $persentase . '%' ?></span>
             </div>
             <hr>
             <div class="form-group">
                 <label for=""><strong>PENANGANAN</strong></label><br>
                 <?php
 
-                //jika presentasi cf 0 
-                if ($persentase <= 0) {
-                    echo ' <span>Tidak ada penanganan khusus</span>';
-                } else if (($persentase > 0) && $persentase <= 40) {
-                    //jika lebih besar dari 0 dan lebih kecil dari 40
-                    //tampilkan data dari tabel jenis yang memiliki parameter 40
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '40');
-                    //tampilkan field yang dimaksud
-                    echo ' <span>' . $jenis->penanganan . '</span>';
-                } else if (($persentase >= 41) && $persentase <= 90) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '90');
-                    echo ' <span>' . $jenis->penanganan . '</span>';
-                } else if (($persentase >= 91) && $persentase <= 100) {
-                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'parameter', '100');
-                    echo ' <span>' . $jenis->penanganan . '</span>';
-                }
+                $this->load->model('home/Home_model', 'HM');
+                $kode_penyakit = $this->uri->segment('5');
+                $penanganan = $this->HM->listPenanganan($kode_penyakit, $tingkat);
+
+                echo $penanganan->deskripsi;
                 ?>
             </div>
             <hr>
             <div class="float-right">
-                <form action="<?= base_url('home/diagnosa/simpanDiagnosaPasien/' . $id_pasien); ?>" method="post">
+                <form action="<?= base_url('home/diagnosa/simpanDiagnosaPasien/' . $id_pasien . '/' . $kode_penyakit); ?>" method="post">
                     <input type="hidden" value="<?= $persentase; ?>" name="akumulasi_cf">
 
                     <a href="<?= base_url('home/diagnosa/hapusData/' . $id_pasien); ?>" class="btn btn-secondary text-white tombol-hapus"><i class="fa fa-trash"></i> Buang</a>

@@ -48,4 +48,13 @@ class Home_model extends CI_Model
             ->where('parameter', '== 74');
         return $this->db->get()->row();
     }
+
+    function listPenanganan($kode_penyakit, $tingkat)
+    {
+        $this->db->select('*')
+            ->from('tbl_penanganan')
+            ->where('kode_jenis', $kode_penyakit)
+            ->where('tingkat', $tingkat);
+        return $this->db->get()->row();
+    }
 }

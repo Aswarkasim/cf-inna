@@ -86,7 +86,7 @@ class Diagnosa extends CI_Controller
         redirect('home/diagnosa/rekapJawaban/' . $id);
     }
 
-    public function proses()
+    public function proses($kode_penyakit)
     {
         $this->load->helper('string');
 
@@ -100,7 +100,8 @@ class Diagnosa extends CI_Controller
         ];
         $this->Crud_model->add('tbl_pasien', $dataPasien);
 
-        $ask = $this->HM->listPengetahuan();
+        $ask = $this->HM->listPengetahuan($kode_penyakit);
+        // $penyakit = $this->Crud_model->listingOne('tbl_jenis', 'kode_penyakit', $kode_penyakit);
 
         foreach ($ask as $row) {
             $kode_pengetahuan = 'kode_pengetahuan' . $row->kode_pengetahuan;
@@ -116,23 +117,26 @@ class Diagnosa extends CI_Controller
             $this->Crud_model->add('tbl_diagnosa', $diagnosa);
         }
 
-        redirect('home/diagnosa/rekapJawaban/' . $dataPasien['id_pasien']);
+        redirect('home/diagnosa/rekapJawaban/' . $dataPasien['id_pasien'] . '/' . $kode_penyakit);
     }
 
-    function rekapJawaban($id_pasien)
+    function rekapJawaban($id_pasien, $kode_penyakit)
     {
         $dataInput = $this->HM->listDiagnosaPasien($id_pasien);
         $dataPasien = $this->Crud_model->listingOne('tbl_pasien', 'id_pasien', $id_pasien);
+        $penyakit = $this->Crud_model->listingOne('tbl_jenis', 'kode_jenis', $kode_penyakit);
         $data = [
             'id_pasien' => $id_pasien,
+            'penyakit'      => $penyakit,
             'data'      => $dataInput,
             'dataPasien' => $dataPasien,
+            'kode_penyakit' => $kode_penyakit,
             'content' => 'diagnosa/proses'
         ];
         $this->load->view('layout/wrapper', $data);
     }
 
-    function simpanDiagnosaPasien($id_pasien)
+    function simpanDiagnosaPasien($id_pasien, $kode_penyakit)
     {
         $data = [
             'id_pasien'         => $id_pasien,
@@ -143,7 +147,7 @@ class Diagnosa extends CI_Controller
 
         $this->session->set_flashdata('msg', 'Data disimpan');
 
-        redirect('home/diagnosa/rekapJawaban/' . $id_pasien);
+        redirect('home/diagnosa/rekapJawaban/' . $id_pasien . '/' . $kode_penyakit);
     }
 
     function hapusData($id_pasien)

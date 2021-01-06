@@ -1,7 +1,7 @@
 <section class="jumbotron">
     <div class="container">
         <a href="<?= base_url('home/diagnosa/') ?>" class="btn btn-success">Pasien Baru</a><br>
-        <form action="<?= base_url('home/diagnosa/proses') ?>" method="post" class="form-signin">
+        <form action="<?= base_url('home/diagnosa/proses/' . $this->uri->segment('4')) ?>" method="post" class="form-signin">
 
             <input type="hidden" name="nama_pasien" value="<?= $nama_pasien ?>">
             <input type="hidden" name="jenis_kelamin" value="<?= $jenis_kelamin ?>">
@@ -43,15 +43,15 @@
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" required name="jawabPasien<?= $row->kode_pengetahuan ?>" id="inlineRadio<?= $row->kode_pengetahuan ?>2" value="0.4">
-                            <label class="form-check-label" for="inlineRadio<?= $row->kode_pengetahuan ?>2">Cukup Yakin</label>
+                            <label class="form-check-label" for="inlineRadio<?= $row->kode_pengetahuan ?>2">Yakin</label>
                         </div>
-                        <div class="form-check form-check-inline">
+                        <!-- <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" required name="jawabPasien<?= $row->kode_pengetahuan ?>" id="inlineRadio<?= $row->kode_pengetahuan ?>3" value="0.8">
                             <label class="form-check-label" for="inlineRadio<?= $row->kode_pengetahuan ?>3">Yakin</label>
-                        </div>
+                        </div> -->
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" required name="jawabPasien<?= $row->kode_pengetahuan ?>" id="inlineRadio<?= $row->kode_pengetahuan ?>4" value="1">
-                            <label class="form-check-label" for="inlineRadio<?= $row->kode_pengetahuan ?>4">Sangat Yakin</label>
+                            <label class="form-check-label" for="inlineRadio<?= $row->kode_pengetahuan ?>3">Sangat Yakin</label>
                         </div>
                     </div>
                 </div>
