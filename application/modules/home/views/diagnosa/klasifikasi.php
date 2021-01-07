@@ -47,7 +47,7 @@
 
             <div class="row pb-2">
                 <div class="col-md-12">
-                    <a href="<?= base_url('home/diagnosa/ask'); ?>" class="btn btn-success btn-block py-3">Tidak memiliki gejala apapun</a>
+                    <a href="#" class="btn btn-success btn-block py-3 tanpa-gejala">Tidak memiliki gejala apapun</a>
                 </div>
             </div>
 

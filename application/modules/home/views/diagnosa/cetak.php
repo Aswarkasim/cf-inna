@@ -61,13 +61,18 @@
         <td><?= $data->umur . ' Tahun'; ?></td>
       </tr>
       <tr>
+        <td align="right" width="200px">Diagnosa :</td>
+        <td><?= $data->nama_penyakit; ?></td>
+      </tr>
+      <tr>
+        <td align="right" width="200px">Tingkat :</td>
+        <td><?= $data->tingkat; ?></td>
+      </tr>
+      <tr>
         <td align="right" width="200px">Keakuratan :</td>
         <td><?= $data->akumulasi_cf . ' %'; ?></td>
       </tr>
-      <tr>
-        <td align="right" width="200px">Diagnosa :</td>
-        <td><?= $data->nama_jenis; ?></td>
-      </tr>
+
 
     </table>
   </div>

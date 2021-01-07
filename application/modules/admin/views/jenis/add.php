@@ -30,7 +30,7 @@
                             </div>
                         </div><br>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-3"><strong>PERBANDINGAN <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
                             <div class="col-md-9">
                                 <select name="banding" required class="form-control" id="">
@@ -55,7 +55,7 @@
                             <div class="col-md-9">
                                 <textarea name="penanganan" id="editor" cols="30" rows="10"></textarea>
                             </div>
-                        </div><br>
+                        </div><br> -->
 
 
                     </div>

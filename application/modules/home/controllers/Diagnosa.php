@@ -141,7 +141,9 @@ class Diagnosa extends CI_Controller
         $data = [
             'id_pasien'         => $id_pasien,
             'akumulasi_cf'      => $this->input->post('akumulasi_cf'),
-            'kode_penyakit'     => $this->input->post('kode_penyakit')
+            'kode_penyakit'     => $this->input->post('kode_penyakit'),
+            'tingkat'     => $this->input->post('tingkat'),
+            'nama_penyakit'     => $this->input->post('nama_penyakit')
         ];
         $this->Crud_model->edit('tbl_pasien', 'id_pasien', $id_pasien, $data);
 

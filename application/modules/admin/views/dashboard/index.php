@@ -36,7 +36,7 @@
             <div class="inner">
                 <h3><?= count($gejala) ?></h3>
 
-                <p>Barang Masuk</p>
+                <p>Gejala</p>
             </div>
             <div class="icon">
                 <i class="fa fa-heartbeat"></i>
@@ -51,7 +51,7 @@
             <div class="inner">
                 <h3><?= count($pengetahuan) ?></h3>
 
-                <p>Barang Keluar</p>
+                <p>Pengetahuan</p>
             </div>
             <div class="icon">
                 <i class="fa fa-flask"></i>
@@ -66,7 +66,7 @@
             <div class="inner">
                 <h3><?= count($pasien) ?></h3>
 
-                <p>Santri</p>
+                <p>Pasien</p>
             </div>
             <div class="icon">
                 <i class="fa fa-hotel"></i>

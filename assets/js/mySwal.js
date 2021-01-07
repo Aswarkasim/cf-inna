@@ -50,3 +50,15 @@ $('.tombol-logout').on('click', function (e) {
 		}
 	})
 })
+
+
+
+
+$('.tanpa-gejala').on('click', function (e) {
+
+	Swal({
+			title: 'Tanpa Gejala',
+			text: 'Anda tidak terindikasi gejala diare',
+			type: 'warning'
+		})
+})

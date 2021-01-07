@@ -32,7 +32,7 @@ class Jenis extends CI_Controller
         $valid->set_rules(
             'kode',
             'Kode Jenis',
-            'required|max_length[3]|is_unique[tbl_gejala.kode_jenis]',
+            'required|max_length[3]|is_unique[tbl_jenis.kode_jenis]',
             array(
                 'required' => ' %s harus diisi',
                 'is_unique' => 'Kode telah ada. Masukkan kode yang lain',
@@ -113,9 +113,30 @@ class Jenis extends CI_Controller
         }
     }
 
+    function detail($kode_jenis)
+    {
+
+        $penanganan = $this->Crud_model->listingOneAll('tbl_penanganan', 'kode_jenis', $kode_jenis);
+        $data = [
+            'penanganan' => $penanganan,
+            'content'  => 'admin/jenis/detail'
+        ];
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
     function delete($kode_jenis)
     {
         $this->Crud_model->delete('tbl_jenis', 'kode_jenis', $kode_jenis);
         redirect('admin/jenis', 'refresh');
+    }
+
+    function ubahPenanganan($id_penanganan, $kode_jenis)
+    {
+        $data = array(
+            'deskripsi'   => $this->input->post('deskripsi')
+        );
+        $this->Crud_model->edit('tbl_penanganan', 'id_penanganan', $id_penanganan, $data);
+        $this->session->set_flashdata('msg', ' Data telah diedit');
+        redirect('admin/jenis/detail/' . $kode_jenis, 'refresh');
     }
 }

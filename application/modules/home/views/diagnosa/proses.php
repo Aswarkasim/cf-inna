@@ -133,6 +133,8 @@
             <div class="float-right">
                 <form action="<?= base_url('home/diagnosa/simpanDiagnosaPasien/' . $id_pasien . '/' . $kode_penyakit); ?>" method="post">
                     <input type="hidden" value="<?= $persentase; ?>" name="akumulasi_cf">
+                    <input type="hidden" value="<?= $tingkat; ?>" name="tingkat">
+                    <input type="hidden" value="<?= $penyakit->nama_jenis; ?>" name="nama_penyakit">
 
                     <a href="<?= base_url('home/diagnosa/hapusData/' . $id_pasien); ?>" class="btn btn-secondary text-white tombol-hapus"><i class="fa fa-trash"></i> Buang</a>
 

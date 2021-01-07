@@ -24,10 +24,8 @@ $this->load->helper('text');
           <tr>
             <th width="30px">NO</th>
             <th width="40px">KODE</th>
-            <th width="200">NAMA</th>
-            <th width="200">PERBANDINGAN</th>
-            <th width="200">PARAMETER</th>
-            <th width="200">PENANGANAN</th>
+            <th>NAMA</th>
+
             <th width="100px">ACTION</th>
           </tr>
         </thead>
@@ -38,10 +36,7 @@ $this->load->helper('text');
             <tr>
               <td><?= $no ?></td>
               <td><?= $row->kode_jenis ?></td>
-              <td><?= $row->nama_jenis ?></td>
-              <td><?= $row->banding ?></td>
-              <td><?= $row->parameter . '%' ?></td>
-              <td><?= character_limiter($row->penanganan, 50) ?></td>
+              <td><a href="<?= base_url('admin/jenis/detail/' . $row->kode_jenis); ?>"><strong><?= $row->nama_jenis ?></strong></a></td>
               <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-danger btn-flat"><i class="fa fa-cogs"></i></button>
