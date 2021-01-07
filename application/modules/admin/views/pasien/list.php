@@ -37,7 +37,7 @@
               <td><?= $row->jenis_kelamin ?></td>
               <td><?= $row->umur ?></td>
               <td><?= $row->akumulasi_cf ?></td>
-              <td><?= $row->nama_jenis ?></td>
+              <td><?= $row->nama_penyakit ?></td>
               <td><?= $row->tingkat ?></td>
               <td>
                 <div class="btn-group">
