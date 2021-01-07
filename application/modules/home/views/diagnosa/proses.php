@@ -95,10 +95,7 @@
                 <span><?php
 
                         $tingkat = '';
-                        if ($persentase <= 0) {
-                            $tingkat = '';
-                            echo ' <span  class = "text-danger">Tidak menderita diare</span>';
-                        } else if (($persentase > 0) && $persentase <= 44) {
+                        if (($persentase >= 0) && $persentase <= 44) {
                             $tingkat = 'Rendah';
                             echo ' <span class = "text-danger">Rendah</span>';
                         } else if (($persentase >= 45) && $persentase <= 74) {
@@ -122,11 +119,16 @@
                 <label for=""><strong>PENANGANAN</strong></label><br>
                 <?php
 
+
                 $this->load->model('home/Home_model', 'HM');
                 $kode_penyakit = $this->uri->segment('5');
                 $penanganan = $this->HM->listPenanganan($kode_penyakit, $tingkat);
 
-                echo $penanganan->deskripsi;
+                if ($penanganan) {
+                    echo $penanganan->deskripsi;
+                } else {
+                    echo 'Tidak memerlukan penanganan khusus';
+                }
                 ?>
             </div>
             <hr>
@@ -138,7 +140,7 @@
 
                     <a href="<?= base_url('home/diagnosa/hapusData/' . $id_pasien); ?>" class="btn btn-secondary text-white tombol-hapus"><i class="fa fa-trash"></i> Buang</a>
 
-                    <?php if ($dataPasien->akumulasi_cf == 0) { ?>
+                    <?php if ($dataPasien->tingkat == '') { ?>
                         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
                     <?php } else { ?>
                         <a href="<?= base_url('home/diagnosa/cetak/' . $id_pasien); ?>" class="btn btn-warning text-white" target="blank"><i class="fa fa-save"></i> Cetak</a>

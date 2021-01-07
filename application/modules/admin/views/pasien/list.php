@@ -23,6 +23,7 @@
             <th width="">UMUR</th>
             <th width="">AKUMULASI CF</th>
             <th width="">DIAGNOSA</th>
+            <th width="">TINGKAT</th>
             <th width="100px">ACTION</th>
           </tr>
         </thead>
@@ -37,6 +38,7 @@
               <td><?= $row->umur ?></td>
               <td><?= $row->akumulasi_cf ?></td>
               <td><?= $row->nama_jenis ?></td>
+              <td><?= $row->tingkat ?></td>
               <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-danger btn-flat"><i class="fa fa-cogs"></i></button>
