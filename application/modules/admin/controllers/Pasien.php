@@ -35,4 +35,13 @@ class Pasien extends CI_Controller
 
     redirect('admin/pasien', 'refresh');
   }
+
+  function cetakTabulasi()
+  {
+    $start = $this->input->post('date_start');
+    $end = $this->input->post('date_end');
+
+    $data['pasien'] = $this->CF->printTabulasi($start, $end);
+    $this->load->view('admin/pasien/cetak_page', $data, FALSE);
+  }
 }

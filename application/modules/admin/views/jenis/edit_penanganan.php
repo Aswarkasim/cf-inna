@@ -19,7 +19,7 @@
 
         <div class="modal-body">
           <div class="form-group">
-            <label for="">Ubah Gambar</label>
+            <label for="">Deskripsi</label>
             <script src="<?= base_url('assets/admin/') ?>bower_components/jquery/dist/jquery.min.js"></script>
             <script src="<?= base_url('assets/') ?>js/ckeditor/ckeditor.js"></script>
             <textarea name="deskripsi" class="form-control" cols="30" rows="10" id="editor<?= $row->id_penanganan; ?>"><?= $row->deskripsi; ?>"</textarea>

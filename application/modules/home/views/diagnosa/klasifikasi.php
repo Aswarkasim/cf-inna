@@ -28,26 +28,44 @@
 
             <div class="row pb-2">
                 <div class="col-md-12">
-                    <a href="<?= base_url('home/diagnosa/ask/P01/' . $nama_pasien . '/' . $jenis_kelamin . '/' . $umur); ?>" class="btn btn-success btn-block py-3">Apakah anda BAB kurang dari 3X dalam sehari?</a>
+                    <?php
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'kode_jenis', 'P01');
+                    ?>
+                    <a href="<?= base_url('home/diagnosa/ask/P01/' . $nama_pasien . '/' . $jenis_kelamin . '/' . $umur); ?>" class="btn btn-success btn-block py-3">
+                        <b class="text-white">Apakah anda BAB kurang dari 3X dalam sehari?</b>
+                        <?= '<p class="text-white">' . $jenis->deskripsi . '</p>' ?>
+                    </a>
                 </div>
             </div>
 
             <div class="row pb-2">
                 <div class="col-md-12">
-                    <a href="<?= base_url('home/diagnosa/ask/P02/' . $nama_pasien . '/' . $jenis_kelamin . '/' . $umur); ?>" class="btn btn-success btn-block py-3">Apakah anda BAB lebih dari 3X dalam sehari?</a>
+                    <?php
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'kode_jenis', 'P02');
+                    ?>
+                    <a href="<?= base_url('home/diagnosa/ask/P02/' . $nama_pasien . '/' . $jenis_kelamin . '/' . $umur); ?>" class="btn btn-success btn-block py-3">
+                        <b class="text-white"> Apakah anda BAB lebih dari 3X dalam sehari?</b>
+                        <?= '<p class="text-white">' . $jenis->deskripsi . '</p>' ?>
+                    </a>
                 </div>
             </div>
 
 
             <div class="row pb-2">
                 <div class="col-md-12">
-                    <a href="<?= base_url('home/diagnosa/ask/P03/' . $nama_pasien . '/' . $jenis_kelamin . '/' . $umur); ?>" class="btn btn-success btn-block py-3">Apakah anda BAB lebih dari 5X dalam sehari?</a>
+                    <?php
+                    $jenis = $this->Crud_model->listingOne('tbl_jenis', 'kode_jenis', 'P03');
+                    ?>
+                    <a href="<?= base_url('home/diagnosa/ask/P03/' . $nama_pasien . '/' . $jenis_kelamin . '/' . $umur); ?>" class="btn btn-success btn-block py-3">
+                        <b class="text-white">Apakah anda BAB lebih dari 5X dalam sehari?</b>
+                        <?= '<p class="text-white">' . $jenis->deskripsi . '</p>' ?>
+                    </a>
                 </div>
             </div>
 
             <div class="row pb-2">
                 <div class="col-md-12">
-                    <a href="#" class="btn btn-success btn-block py-3 tanpa-gejala">Tidak memiliki gejala apapun</a>
+                    <a href="#" class="btn btn-success btn-block py-3 tanpa-gejala"><b class="text-white">Tidak memiliki gejala apapun</b></a>
                 </div>
             </div>
 

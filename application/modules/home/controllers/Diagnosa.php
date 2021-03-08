@@ -51,6 +51,7 @@ class Diagnosa extends CI_Controller
             $data = array(
                 'nama_pasien'     => $i->post('nama_pasien'),
                 'jenis_kelamin'   => $i->post('jenis_kelamin'),
+                'tgl_lahir'            => $i->post('tgl_lahir'),
                 'umur'            => $i->post('umur'),
                 'content' => 'diagnosa/klasifikasi'
             );
@@ -71,9 +72,9 @@ class Diagnosa extends CI_Controller
                 'nama_pasien'     => $nama_pasien,
                 'jenis_kelamin'   => $jenis_kelamin,
                 'umur'            => $umur,
-                'kode_penyakit'            => $kode_penyakit,
-                'ask'     => $ask,
-                'content' => 'diagnosa/ask'
+                'kode_penyakit'   => $kode_penyakit,
+                'ask'             => $ask,
+                'content'         => 'diagnosa/ask'
             );
             $this->load->view('layout/wrapper', $data);
         }

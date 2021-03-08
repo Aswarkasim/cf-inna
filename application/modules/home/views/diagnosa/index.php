@@ -21,6 +21,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for=""><strong>Tanggal Lahir</strong></label>
+                    <input class="form-control" name="tgl_lahir" type="date" value="<?= set_value('tgl_lahir') ?>">
+                </div>
+
+                <div class="form-group">
                     <label for=""><strong>Umur</strong></label>
                     <select name="umur" id="" required class="form-control">
                         <option value="">Umur</option>

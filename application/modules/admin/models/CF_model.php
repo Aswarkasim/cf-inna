@@ -26,9 +26,29 @@ class CF_model extends CI_Model
 
     public function listDataPasien()
     {
-        $this->db->select('tbl_pasien.*, tbl_jenis.*')
+        $this->db->select('
+                            tbl_pasien.*, 
+                            tbl_jenis.nama_jenis,
+                            tbl_jenis.penanganan,
+                            ')
             ->from('tbl_pasien')
-            ->join('tbl_jenis', 'tbl_jenis.kode_jenis = tbl_pasien.kode_penyakit', 'left');
+            ->join('tbl_jenis', 'tbl_jenis.kode_jenis = tbl_pasien.kode_penyakit', 'left')
+            ->order_by('tbl_pasien.tgl_update', 'DESC');
+        return $this->db->get()->result();
+    }
+
+    public function printTabulasi($start, $end)
+    {
+        $this->db->select('
+                            tbl_pasien.*, 
+                            tbl_jenis.nama_jenis,
+                            tbl_jenis.penanganan,
+                            ')
+            ->from('tbl_pasien')
+            ->join('tbl_jenis', 'tbl_jenis.kode_jenis = tbl_pasien.kode_penyakit', 'left')
+            ->where('tbl_pasien.tgl_update >=', $start)
+            ->where('tbl_pasien.tgl_update <=', $end)
+            ->order_by('tbl_pasien.tgl_update', 'DESC');
         return $this->db->get()->result();
     }
 }

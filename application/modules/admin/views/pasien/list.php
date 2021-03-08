@@ -12,8 +12,8 @@
         <a href="<?= base_url($add) ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</a>
       </p> -->
 
-
-
+      <?php include('cetak_modal.php') ?>
+      <br>
       <table class="table table table-bordered table-striped DataTable">
         <thead>
           <tr>
@@ -33,7 +33,7 @@
           foreach ($pasien as $row) { ?>
             <tr>
               <td><?= $no ?></td>
-              <td><?= $row->nama_pasien ?></td>
+              <td><?= $row->nama_pasien . '<br>' . $row->tgl_update ?></td>
               <td><?= $row->jenis_kelamin ?></td>
               <td><?= $row->umur ?></td>
               <td><?= $row->akumulasi_cf ?></td>

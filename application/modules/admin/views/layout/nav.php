@@ -39,7 +39,7 @@ $role = $this->session->userdata('role');
                             echo "active";
                         }
                         ?>"><a href="<?php echo base_url('admin/pasien')
-                                        ?>"><i class="fa fa-hotel"></i> <span>Data Pasien</span></a></li>
+                                        ?>"><i class="fa fa-hotel"></i> <span>Riwayat Konsultasi</span></a></li>
 
 
 

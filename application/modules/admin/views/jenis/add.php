@@ -30,6 +30,13 @@
                             </div>
                         </div><br>
 
+                        <div class="row">
+                            <div class="col-md-3"><strong>Deskripsi <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
+                            <div class="col-md-9">
+                                <textarea name="deskripsi" id="" class="form-control" cols="30" rows="10"></textarea>
+                            </div>
+                        </div><br>
+
                         <!-- <div class="row">
                             <div class="col-md-3"><strong>PERBANDINGAN <small class="text-danger">*</small><span class="pull-right">:</span></strong></div>
                             <div class="col-md-9">

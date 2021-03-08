@@ -24,3 +24,11 @@
     </div>
 </section>
 <!-- banner part start-->
+
+<!-- 
+.SKIP Tampilannya penguji mnta perbaiki - 
+.DONE Menu isi data pasien yg umur di ganti jadi pilih tgl lahir tapi masih bisa di isi khusus umur 5 sampai 12 THN sja
+.DONE Bagian klasifikasi yg pilih 4 pilihan itu tambahkan keterangan di bawahnya. Keterangan nnti ku isi sendiri
+.DONE -  Di bagian admin yg form data pasien di ubah jadi form riwayat konsultasi.  Terus bagian field nya di tambahkan tgl konsultasi jadi yg paling atas nnti yg paling terkahir konsultasi.
+.DONE Pas di cetak bisa di pilih cetak/ bln atau / THN.
+.SKIP Pengujinya mnta toh di buatkan klasifikasi nntinya. Misal dalam 1 THN penyakit yg paling banyak di derita apa. -->
